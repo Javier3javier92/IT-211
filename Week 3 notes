@@ -1,0 +1,244 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Copy of Copy of  Week3 notes.ipynb",
+      "private_outputs": true,
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Javier3javier92/IT-211/blob/main/Week%203%20notes\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7yiqcKoEDvYr"
+      },
+      "source": [
+        "This is a place for your notes and code examples.  Here's a demo, which you should feel free to delete:\n",
+        "<br>\n",
+        "<br>\n",
+        "<br>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gZaSmGLqNIz7"
+      },
+      "source": [
+        "Links:\r\n",
+        "\r\n",
+        "Java If/Else - https://www.w3schools.com/java/java_conditions.asp\r\n",
+        "Java Switch - https://www.w3schools.com/java/java_switch.asp\r\n",
+        "Java Operator - https://www.w3schools.com/java/java_operators.asp"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "C1iwTduXEVFm"
+      },
+      "source": [
+        "%%writefile Input.java\n",
+        "import java.util.Scanner;\n",
+        "import java.lang.Math; \n",
+        "\n",
+        "// Goal: Calculator\n",
+        "// Add Operators: +, -, *, /, exponents (taking the first number ot the power of the 2nd number)\n",
+        "// Expectations: input numbers and operators and have them return an answer. \n",
+        "// we'll be using if statments and eventually switch to solve the interface problem\n",
+        "\n",
+        "public class Input {                          \n",
+        "    public static void main(String [] args) {  \n",
+        "        Scanner randomScanner = new Scanner(System.in);       // Create a Scanner object\n",
+        "\n",
+        "        System.out.println(\"Enter your first number:\");       // Scans for first number and stores it as firstNumber.\n",
+        "        double firstNumber = randomScanner.nextDouble();\n",
+        "\n",
+        "        System.out.println(\"Enter operator(+,-,*,/,):\");\n",
+        "        String operator = randomScanner.next();\n",
+        "\n",
+        "        System.out.println(\"Enter your second number:\");      // Scans for second number and stores it as secondNumber.\n",
+        "        double secondNumber = randomScanner.nextDouble();\n",
+        "        randomScanner.close();\n",
+        "\n",
+        "        if (operator.equals(\"+\")) {\n",
+        "            double myAnswer = firstNumber + secondNumber;\n",
+        "            System.out.println(myAnswer);\n",
+        "        } else if (operator.equals(\"-\")) {\n",
+        "          double myAnswer = firstNumber - secondNumber;\n",
+        "          System.out.println(myAnswer);\n",
+        "        } else if (operator.equals(\"*\")) {\n",
+        "          double myAnswer = firstNumber * secondNumber;\n",
+        "          System.out.println(myAnswer);\n",
+        "        } else if (operator.equals(\"/\")) {\n",
+        "          double myAnswer = firstNumber / secondNumber;\n",
+        "          System.out.println(myAnswer);     \n",
+        "        } else if (operator.equals(\"^\")) {\n",
+        "          double myAnswer = Math.pow(firstNumber,secondNumber);\n",
+        "          System.out.println(myAnswer); \n",
+        "        } else {\n",
+        "            System.out.println(\"We don't have that functionality yet\");\n",
+        "        }\n",
+        "\n",
+        "        //double myAnswer  = firstNumber + secondNumber;        // Adds those numbers together and stores the answer as myAnswer.\n",
+        "        //double myAnswer2 = firstNumber - secondNumber;        // Subract secondNumber from firstNumber \n",
+        "        //double myAnswer3 = firstNumber * secondNumber;        // Multiplies firstNumber by secondNumber\n",
+        "        //double myAnswer4 = firstNumber / secondNumber;        // Divides firstNumber by secondNumber\n",
+        "       //double myAnswer5 = Math.pow(firstNumber, secondNumber);  \n",
+        "       \n",
+        "        //System.out.println(\"My first number is \" + firstNumber + \".\\nMy second number is \" + secondNumber + \".\\nAddition: \" + \n",
+        "                           //myAnswer + \".\\nSubtraction: \" + myAnswer2 + \".\\nMultiplication: \" + myAnswer3 + \".\\nDivision: \" + \n",
+        "                           //myAnswer4 + \".\\nExponent: \" + myAnswer5 + \".\");\n",
+        "  }\n",
+        "} \n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jRzZxWlTEgN7"
+      },
+      "source": [
+        "!javac Input.java\n",
+        "!echo -e \"5.0\\n+\\n30.0\" > test\n",
+        "!java Input < test\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-9O_EeZvyPjo"
+      },
+      "source": [
+        "%%writefile Input.java\r\n",
+        "import java.util.Scanner;\r\n",
+        "import java.lang.Math; \r\n",
+        "\r\n",
+        "// Goal: Calculator\r\n",
+        "// Add Operators: +, -, *, /, exponents (taking the first number ot the power of the 2nd number)\r\n",
+        "// Expectations: input numbers and operators and have them return an answer. \r\n",
+        "// we'll be using if statments and eventually switch to solve the interface problem\r\n",
+        "\r\n",
+        "public class Input {                          \r\n",
+        "    public static void main(String [] args) {  \r\n",
+        "        Scanner randomScanner = new Scanner(System.in);       // Create a Scanner object\r\n",
+        "\r\n",
+        "        System.out.println(\"Enter your first number:\");       // Scans for first number and stores it as firstNumber.\r\n",
+        "        double firstNumber = randomScanner.nextDouble();\r\n",
+        "\r\n",
+        "        System.out.println(\"Enter operator(+,-,*,/,):\");\r\n",
+        "        String operator = randomScanner.next();\r\n",
+        "\r\n",
+        "        System.out.println(\"Enter your second number:\");      // Scans for second number and stores it as secondNumber.\r\n",
+        "        double secondNumber = randomScanner.nextDouble();\r\n",
+        "        randomScanner.close();\r\n",
+        "\r\n",
+        "        double myAnswer; \r\n",
+        "\r\n",
+        "        switch(operator){\r\n",
+        "            case \"+\":\r\n",
+        "            myAnswer = firstNumber + secondNumber; \r\n",
+        "            System.out.println(myAnswer);\r\n",
+        "            break;\r\n",
+        "\r\n",
+        "            case \"-\":\r\n",
+        "            myAnswer = firstNumber - secondNumber;\r\n",
+        "            System.out.println(myAnswer);\r\n",
+        "            break;\r\n",
+        "\r\n",
+        "            case \"*\":\r\n",
+        "            myAnswer = firstNumber * secondNumber;\r\n",
+        "            System.out.println(myAnswer);\r\n",
+        "            break;\r\n",
+        "\r\n",
+        "            case \"/\":\r\n",
+        "            myAnswer = firstNumber / secondNumber;\r\n",
+        "            System.out.println(myAnswer);\r\n",
+        "            break;\r\n",
+        "\r\n",
+        "            case \"^\":\r\n",
+        "            myAnswer = Math.pow(firstNumber,secondNumber);\r\n",
+        "            System.out.println(myAnswer);\r\n",
+        "            break;\r\n",
+        "            \r\n",
+        "            default: \r\n",
+        "              System.out.println(\"we don't have function\");\r\n",
+        "        }\r\n",
+        "\r\n",
+        "\r\n",
+        "        //double myAnswer  = firstNumber + secondNumber;        // Adds those numbers together and stores the answer as myAnswer.\r\n",
+        "        //double myAnswer2 = firstNumber - secondNumber;        // Subract secondNumber from firstNumber \r\n",
+        "        //double myAnswer3 = firstNumber * secondNumber;        // Multiplies firstNumber by secondNumber\r\n",
+        "        //double myAnswer4 = firstNumber / secondNumber;        // Divides firstNumber by secondNumber\r\n",
+        "       //double myAnswer5 = Math.pow(firstNumber, secondNumber);  \r\n",
+        "       \r\n",
+        "        //System.out.println(\"My first number is \" + firstNumber + \".\\nMy second number is \" + secondNumber + \".\\nAddition: \" + \r\n",
+        "                           //myAnswer + \".\\nSubtraction: \" + myAnswer2 + \".\\nMultiplication: \" + myAnswer3 + \".\\nDivision: \" + \r\n",
+        "                           //myAnswer4 + \".\\nExponent: \" + myAnswer5 + \".\");\r\n",
+        "  }\r\n",
+        "} \r\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XwSIqg5e2gRE"
+      },
+      "source": [
+        "!javac Input.java\r\n",
+        "!echo -e \"5.0\\n+\\n30.0\" > test\r\n",
+        "!java Input < test"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CER-3tJ3Dotl"
+      },
+      "source": [
+        "You only need to run the code below if you want to use Java 12. You won't need the special new properties of Java 12 for most of the class, but be aware that our GitHub Classroom tests run on Java 12."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jT9yfcqCDeC5"
+      },
+      "source": [
+        "!sudo add-apt-repository ppa:openjdk-r/ppa -y\n",
+        "!sudo apt-get update -y -q\n",
+        "!sudo apt-get install openjdk-12-jre-headless -y -q\n",
+        "!echo \"0\" | sudo update-alternatives --config java\n",
+        "!java -version"
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
